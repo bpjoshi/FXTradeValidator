@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Forex Service</title>
+<meta name="author" content="Bhagwati Prasad(bpjoshi)" />
+<meta name="_csrf" content="${_csrf.token}" />
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="/js/postrequest.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h3 style="color: blue; text-align: center">Forex Trade
+			Validation</h3>
+		<!-- DIV for submitting trade information -->
+		<div class="col-sm-12">
+			<form class="fom-group" id="tradeInformationForm">
+				<div class="form-group">
+					<label for="TradeInfo">Enter Trade Information here in JSON
+						Format:</label>
+					<textarea class="form-control" rows="15" cols="" id="tradeInfo">
+						<h1>THIS IS UNDER DEVELOPMENT</h1>
+					</textarea>
+				</div>
+
+				<button type="submit" class="btn btn-default"
+					style="margin-left: 20px; margin-right: 5px">Submit</button>
+
+			</form>
+		</div>
+		<!-- DIV to Validation result for Trade -->
+		<div class="col-sm-12" id="postResultDiv">
+			<h2>Validation Results</h2>
+			<!--  The .table-bordered class adds borders to a table-->
+			<table class="table table-bordered" id="validationTable">
+				<thead>
+					<tr>
+						<th>Serial No</th>
+						<th>Important Information</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Validation Results shall be displayed here</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
