@@ -11,6 +11,8 @@ import java.util.ListIterator;
 
 import javax.validation.Valid;
 
+import com.bpjoshi.tradevalidator.config.ClassInfo;
+@ClassInfo(summary = "Represents a generic list whose elements can be validated")
 public class ValidList<E> implements List<E> {
 
 	

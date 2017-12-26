@@ -11,5 +11,5 @@ import java.lang.annotation.RetentionPolicy;
 public @interface ClassInfo{
 	String author() default "bpjoshi(Bhagwati Prasad)";
 	int version() default 1;
-	String brief();
+	String summary();
 }

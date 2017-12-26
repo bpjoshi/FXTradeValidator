@@ -5,11 +5,14 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
+import com.bpjoshi.tradevalidator.config.ClassInfo;
+
 import lombok.Data;
 /**
  * @author bpjoshi(Bhagwati Prasad)
  */
 @Data
+@ClassInfo(summary = "This class represents a Trade")
 public class Trade {
 	@NotNull
 	private final String customer;

@@ -1,5 +1,6 @@
 package com.bpjoshi.tradevalidator.validation.trade;
 
+import com.bpjoshi.tradevalidator.config.ClassInfo;
 import com.bpjoshi.tradevalidator.model.Trade;
 import com.bpjoshi.tradevalidator.validation.Validator;
 import com.bpjoshi.tradevalidator.validation.ValidatorResult;
@@ -9,6 +10,7 @@ import javaslang.Tuple2;
 /**
  * @author bpjoshi(Bhagwati Prasad)
  */
+@ClassInfo(summary = "class fixer api for checking if the value date for a trade is on a holiday")
 public class ValueDateOnHolidayValidator implements Validator {
 	 private static final String VALIDATOR_MESSAGE = "VALUE DATE FOR CURRENCIES IS ON NON WORKING DAY.";
 

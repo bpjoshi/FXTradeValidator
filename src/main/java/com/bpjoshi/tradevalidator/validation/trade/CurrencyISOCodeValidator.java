@@ -1,5 +1,6 @@
 package com.bpjoshi.tradevalidator.validation.trade;
 
+import com.bpjoshi.tradevalidator.config.ClassInfo;
 import com.bpjoshi.tradevalidator.model.Trade;
 import com.bpjoshi.tradevalidator.validation.Validator;
 import com.bpjoshi.tradevalidator.validation.ValidatorResult;
@@ -10,6 +11,7 @@ import javaslang.Tuple2;
 /**
  * @author bpjoshi(Bhagwati Prasad)
  */
+@ClassInfo(summary = "Validates ISO codes for the currencies")
 public class CurrencyISOCodeValidator implements Validator {
 	private static final String VALIDATOR_MESSAGE = "ISO CODE IS INVALID FOR CURRENCIES %s. ";
 	private final CurrencyValidationService currencyISO;

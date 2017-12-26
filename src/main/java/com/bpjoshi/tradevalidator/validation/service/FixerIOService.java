@@ -10,11 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.bpjoshi.tradevalidator.config.ClassInfo;
 import com.bpjoshi.tradevalidator.model.Currency;
 /**
  * @author bpjoshi(Bhagwati Prasad)
  */
 @Service
+@ClassInfo(summary = "A rest client that calls fixer.io api for validating some part of the trade information.")
 public class FixerIOService {
 
     private final RestTemplate restTemplate;
