@@ -8,11 +8,7 @@ import static javaslang.API.Case;
 import static javaslang.API.Match;
 
 import java.util.List;
-import java.util.Properties;
 import java.util.stream.Stream;
-
-import javaslang.Tuple;
-import javaslang.Tuple2;
 
 import javax.validation.Valid;
 
@@ -23,16 +19,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bpjoshi.tradevalidator.config.ClassInfo;
 import com.bpjoshi.tradevalidator.model.Trade;
 import com.bpjoshi.tradevalidator.model.ValidList;
 import com.bpjoshi.tradevalidator.model.ValidityInfo;
 import com.bpjoshi.tradevalidator.validation.Validator;
 import com.bpjoshi.tradevalidator.validation.ValidatorResult;
 
+import javaslang.Tuple;
+import javaslang.Tuple2;
+
 /**
  * @author bpjoshi(Bhagwati Prasad)
  */
 @RestController
+@ClassInfo(summary="Controller class that handles validation for trade")
 public class TradeController {
 
 	private final List<Validator> validationConditions;
@@ -52,11 +53,6 @@ public class TradeController {
 	
 	@RequestMapping(value = "/trades", method = RequestMethod.POST)
     ResponseEntity<?> validateTrade(@Valid @RequestBody final ValidList<Trade> validTrades) {
-		Properties systemSettings = System.getProperties();
-        systemSettings.put("proxySet", "true");
-        systemSettings.put("https.proxyHost", "proxy08-master.noid.in.sopra");
-        systemSettings.put("https.proxyPort", "8080");
-        System.setProperty("java.net.useSystemProxies", "true");
         final Stream<Tuple2<Trade, Stream<ValidatorResult>>> specificValidation = validTrades.stream()
                                                                                                 .map(x -> Match(x.getType()).of(
                                                                                                         Case($("VanillaOption"), validateOption(x)),

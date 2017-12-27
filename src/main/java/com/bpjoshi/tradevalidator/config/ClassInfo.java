@@ -4,7 +4,10 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
+/**
+ * @author bpjoshi(Bhagwati Prasad)
+ * Annotation for documenting classes and interfaces in the application
+ */
 @Documented
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)

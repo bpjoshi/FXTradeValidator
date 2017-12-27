@@ -30,6 +30,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
  * @author bpjoshi(Bhagwati Prasad)
  */
 @Configuration
+@ClassInfo(summary="General spring managed beans are created here.")
 public class BeansConfig {
 	@Bean
 	public RestTemplate restTemplate() {
