@@ -1,11 +1,15 @@
 package com.bpjoshi.tradevalidator.config;
 
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.Proxy.Type;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.client.RestTemplate;
 
@@ -32,9 +36,18 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 @Configuration
 @ClassInfo(summary="General spring managed beans are created here.")
 public class BeansConfig {
+	/*
+	 * Proxy is added for my organization Sopra Steria. 
+	 * It has to be removed before final submission. 
+	 * I have added the proxy to test the API in local environment.
+	 */
 	@Bean
 	public RestTemplate restTemplate() {
-		return new RestTemplate();
+		
+		SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+		Proxy proxy= new Proxy(Type.HTTP, new InetSocketAddress("proxy08-master.noid.in.sopra", 8080));
+	    requestFactory.setProxy(proxy);
+	    return new RestTemplate(requestFactory);
 	}
 
 	@Bean

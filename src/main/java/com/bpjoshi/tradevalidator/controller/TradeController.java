@@ -26,6 +26,8 @@ import com.bpjoshi.tradevalidator.model.ValidityInfo;
 import com.bpjoshi.tradevalidator.validation.Validator;
 import com.bpjoshi.tradevalidator.validation.ValidatorResult;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import javaslang.Tuple;
 import javaslang.Tuple2;
 
@@ -34,6 +36,7 @@ import javaslang.Tuple2;
  */
 @RestController
 @ClassInfo(summary="Controller class that handles validation for trade")
+@Api(tags = {"trades"})
 public class TradeController {
 
 	private final List<Validator> validationConditions;
@@ -52,6 +55,7 @@ public class TradeController {
 	}
 	
 	@RequestMapping(value = "/trades", method = RequestMethod.POST)
+	@ApiOperation(value = "Create trades.", notes = "Returns all trades with validation messages")
     ResponseEntity<?> validateTrade(@Valid @RequestBody final ValidList<Trade> validTrades) {
         final Stream<Tuple2<Trade, Stream<ValidatorResult>>> specificValidation = validTrades.stream()
                                                                                                 .map(x -> Match(x.getType()).of(
