@@ -22,10 +22,12 @@ $(document).ready(
 					data : tradeInfo,
 					dataType : 'json',
 					success : function(result) {
-						//TO DO
+						$("#tradeInfo").val('');
+						resultString=JSON.stringify(result);
+						$("#tradeInfo").val(JSON.stringify(JSON.parse(resultString),null,2));
 					},
 					error : function(e) {
-						//TO DO
+						$("#tradeInfo").val("Exception in processing your data.")
 					}
 				});
 			}
