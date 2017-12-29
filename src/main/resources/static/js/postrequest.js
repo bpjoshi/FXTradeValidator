@@ -27,7 +27,7 @@ $(document).ready(
 						$("#tradeInfo").val(JSON.stringify(JSON.parse(resultString),null,2));
 					},
 					error : function(e) {
-						$("#tradeInfo").val("Exception in processing your data.")
+						$("#tradeInfo").val("An exception encountered in processing your data.")
 					}
 				});
 			}
